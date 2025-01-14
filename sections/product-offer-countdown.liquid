@@ -1,0 +1,63 @@
+<div class="countdownbanner" data-heading="{{section.settings.heading}}" data-subtitle="{{section.settings.subtitle}}" data-expire="{{section.settings.expiry_date}}" data-product-url="{{section.settings.product.url}}">
+  <div>
+    <h2>Product Offer Countdown</h2>
+    <p>Display a countdown timer on your product pages to create urgency and drive sales.</p>
+    <a href="{{ routes.theme_editor_url }}">Customize</a>
+  </div>
+</div>
+
+<div class="js-react-countdown-banner" data-heading="{{section.settings.heading}}" data-subtitle="{{section.settings.subtitle}}" data-expire="{{section.settings.expiry_date}}" data-product-url="{{section.settings.product.url}}"></div>
+
+
+{% schema %}
+{
+  "name": "Product Offer Countdown",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Display a countdown timer on selected product"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Hurry! Offer ends in"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "This is the subtitle"
+    },
+    {
+      "type": "text",
+      "id": "expiry_date",
+      "label": "Expiry date",
+      "default": "2022-12-31"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f8f8f8"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#333333"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product",
+      "info": "Select the product to display the countdown timer for."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Offer Countdown"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,19 @@
+{% comment %}
+  Renders a list of product's price (regular, sale)
+
+  Accepts:
+  - variabile_passata: {Stringt} Product Liquid object (optional)
+
+  Usage:
+  {% render 'my-snippet', variabile_passata: 'variabile' %}
+{% endcomment %}
+
+<h4>My snippet</h4>
+<p>
+  variabile passed as parameter is visible: {{ variabile_passata }}
+</p>
+<p>
+  Variabile declared in section is not accessible in snippet: {{ section_scoped_var }}
+</p>
+
+<p>Varibile from section settings is also accessible in snippet: {{section.settings.image_zoom}}</p>

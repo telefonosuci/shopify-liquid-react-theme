@@ -1,9 +1,8 @@
-import Page from '@App/page.js';
-import TextBanner from '@/components/text-banner/TextBanner';
-import CountdownBanner from '@/components/countdown-banner/CountdownBanner';
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  console.log("PDP Module loaded");
+  /*
   const cList = [
     {
       selector: 'js-webar-r-pdp-hero-component',
@@ -23,5 +22,5 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('Loading PDP Module');
   console.log('Loading PDP Module test');
   pdp.load();
-
+*/
 });

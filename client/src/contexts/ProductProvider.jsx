@@ -7,6 +7,8 @@ export const ProductContext = createContext();
 export const ProductProvider = ({ children }) => {
 
   const [products, setProducts] = useState([]);
+  const [product, setProduct] = useState({});
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -31,8 +33,14 @@ export const ProductProvider = ({ children }) => {
     getProducts();
   }, []);
 
+  useEffect(() => {
+    setProduct(products[0]);
+  }, [products]);
+
   return (
     <ProductContext.Provider value={{
+      product,
+      setProduct,
       products,
       setProducts,
       loading,

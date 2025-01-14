@@ -299,10 +299,21 @@
 
 
 
-    <!-- Custom script loading -->
+    <!-- Custom script and css loading -->
 
-    <script src="{{ 'vendors-bundle.js' | asset_url }}"></script>
-    <script src="{{ 'home-bundle.js' | asset_url }}" defer="defer"></script>
+    <!--<script src="{{ 'vendors-bundle.js' | asset_url }}"></script>
+    -->
+
+
+    {{ 'flex-container.css' | asset_url | stylesheet_tag }}
+
+
+    {% if template == 'index' %}
+      <script src="{{ 'home-bundle.js' | asset_url }}" defer="defer"></script>
+    {% elsif template == 'product' %}
+      <script src="{{ 'pdp-bundle.js' | asset_url }}" defer="defer"></script>
+    {% endif %}
+
 
 
 
@@ -321,6 +332,8 @@
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
 
+
+      Template is {{ template }}
 
       {% assign theme_scoped_var = 'Valore variabile' %}
 

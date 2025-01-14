@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom';
 import CountdownBanner from '@/components/countdown-banner/CountdownBanner';
 import { ThemeProvider } from '../../contexts/ThemeProvider';
 import { ProductProvider } from '../../contexts/ProductProvider';
+import ProductLister from '../../components/product-lister/ProductLister';
 
 
 
@@ -25,13 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const { heading, subtitle, expire, productUrl } = el.dataset ;
 
-
     console.log("Data: ", el.dataset);
     console.log("Heading: ", heading);
     console.log("Subtitle: ", subtitle);
     console.log("Expire: ", expire);
     console.log("Product url: ", productUrl);
-
 
     ReactDOM.render(
       <ThemeProvider>
@@ -42,6 +41,27 @@ document.addEventListener('DOMContentLoaded', () => {
       el
     );
   });
+
+  const productElList = document.querySelectorAll('.js-react-product-lister');
+
+  console.log("Element lister List: ", productElList);
+
+  productElList.forEach((el) => {
+
+    ReactDOM.render(
+      <ThemeProvider>
+        <ProductProvider>
+          <ProductLister />
+        </ProductProvider>
+      </ThemeProvider>,
+      el
+    );
+  });
+
+
+
+
+
 
   /*
   console.log("DEBUGGING");

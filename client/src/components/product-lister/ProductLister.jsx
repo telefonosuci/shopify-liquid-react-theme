@@ -10,10 +10,8 @@ import { ProductContext } from '../../contexts/ProductProvider';
  */
 function ProductLister({ size }) {
 
-
-
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const { products, setProducts, loading, error, getProducts } =
+  const { product, setProduct, products, setProducts, loading, error, getProducts } =
     useContext(ProductContext);
 
 
@@ -27,7 +25,11 @@ function ProductLister({ size }) {
     }
   };
 
-
+/*
+  useEffect(() => {
+    setProduct(products[0]);
+  }, [products]);
+*/
 
   const productList = <div>
 
@@ -41,31 +43,32 @@ function ProductLister({ size }) {
 
   </div>;
 
-  const button = <a href={productUrl}><button>Acquista il prodotto</button></a>;
+
+
+
+
+
 
   return (
     <div className='productlist-container'>
 
-      {productList}
+      <h2>React product lister</h2>
 
+
+      <div className="flex-container" style={{ maxHeight: 500}}>
+        <div class="flex-item">
+          {productList}
+        </div>
+        <div className="flex-item">
+            Product preview {product != null ? (
+              <div>
+                {product.title}
+              </div>
+            ): 'no product found'}
+        </div>
+      </div>
     </div>
   );
 }
 
-// Define PropTypes
-CountdownBanner.propTypes = {
-  title: PropTypes.string.isRequired, // Required string
-  subtitle: PropTypes.string,             // Optional number
-  expire: PropTypes.date,           // Optional boolean
-  productUrl: PropTypes.string,           // Optional
-};
-
-// Set default props (optional)
-CountdownBanner.defaultProps = {
-  title: "Titolo",
-  subtitle: "Sottotitolo",
-  expire: "2025-12-31",
-  productUrl: "",
-};
-
-export default CountdownBanner;
+export default ProductLister;

@@ -1,0 +1,28 @@
+<div class="js-react-simple-react-component simple-component" data-text="{{section.settings.text}}">
+  <div>
+    <h2>{{section.settings.text}}</h2>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Simple React component",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Display a simple text"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Simple React component"
+    }
+  ]
+}
+{% endschema %}

@@ -15,6 +15,15 @@ function ProductLister({ size }) {
     useContext(ProductContext);
 
 
+
+  const prdoductCLick = (product) => {
+    return () => {
+      console.log("Product clicked: ", product);
+      setProduct(product);
+    };
+  };
+
+
   const removeProduct = (product, index) => {
     return () => {
       console.log("removeProduct at index ", index);
@@ -36,18 +45,14 @@ function ProductLister({ size }) {
     {products && products.length > 0 ? (
       <div>
       {products.map((product, index) => (
-        <div>product<span onClick={removeProduct(product, index)} style={{cursor: 'pointer'}}>&nbsp;---remove</span></div>
+        <div key={index} onClick={prdoductCLick(product)}>
+          <span style={{cursor: 'pointer'}}>product</span>  <span onClick={removeProduct(product, index)} style={{cursor: 'pointer'}}>&nbsp;---remove</span>
+        </div>
       ))}
       </div>
     ) : (<div>Caricamento in corso...</div>)}
 
   </div>;
-
-
-
-
-
-
 
   return (
     <div className='productlist-container'>
@@ -56,16 +61,27 @@ function ProductLister({ size }) {
 
 
       <div className="flex-container" style={{ maxHeight: 500}}>
-        <div class="flex-item">
-          {productList}
-        </div>
-        <div className="flex-item">
+
+      <div className="flex-item product-details">
             Product preview {product != null ? (
-              <div>
-                {product.title}
-              </div>
+              <>
+                <div>
+                  {product.title}
+                </div>
+                <div>
+                  Brand: {product.brand}
+                </div>
+                <div>
+                  Price: {product.price}
+                </div>
+              </>
             ): 'no product found'}
         </div>
+
+        <div className="flex-item">
+          {productList}
+        </div>
+
       </div>
     </div>
   );

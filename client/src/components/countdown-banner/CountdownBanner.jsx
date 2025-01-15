@@ -91,7 +91,7 @@ function CountdownBanner({ title, subtitle, expire, productUrl }) {
     {products && products.length > 0 ? (
       <div>
       {products.map((product, index) => (
-        <div>product<span onClick={removeProduct(product, index)} style={{cursor: 'pointer'}}>&nbsp;---remove</span></div>
+        <div key={index}>product<span onClick={removeProduct(product, index)} style={{cursor: 'pointer'}}>&nbsp;---remove</span></div>
       ))}
       </div>
     ) : (<div>Caricamento in corso...</div>)}
@@ -113,8 +113,9 @@ function CountdownBanner({ title, subtitle, expire, productUrl }) {
         {button}
       </div>
 
-      {productList}
-
+      {/*
+        {productList}
+      */}
     </div>
   );
 }

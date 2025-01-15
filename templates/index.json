@@ -9,6 +9,18 @@
  */
 {
   "sections": {
+    "simple_react_component_CWyUTm": {
+      "type": "simple-react-component",
+      "settings": {
+        "text": "Testo di esempio"
+      }
+    },
+    "product_lister_jY3zej": {
+      "type": "product-lister",
+      "settings": {
+        "collection": ""
+      }
+    },
     "product_offer_countdown_HwDVKX": {
       "type": "product-offer-countdown",
       "settings": {
@@ -86,15 +98,10 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
-    },
-    "product_lister_jY3zej": {
-      "type": "product-lister",
-      "settings": {
-        "collection": ""
-      }
     }
   },
   "order": [
+    "simple_react_component_CWyUTm",
     "product_lister_jY3zej",
     "product_offer_countdown_HwDVKX",
     "image_banner",

@@ -3,13 +3,13 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import { createRoot } from 'react-dom/client';
 
 import CountdownBanner from '@/components/countdown-banner/CountdownBanner';
 import { ThemeProvider } from '../../contexts/ThemeProvider';
 import { ProductProvider } from '../../contexts/ProductProvider';
 import ProductLister from '../../components/product-lister/ProductLister';
-
+import SimpleReactComponent from '../../components/simple-react-component/SimpleReactComponent';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -59,9 +59,17 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
+  const simpleElList = document.querySelectorAll('.js-react-simple-react-component');
+
+  console.log("Element simple component List: ", simpleElList);
 
 
+  simpleElList.forEach((el) => {
 
+    const { text } = el.dataset ;
+    const root = createRoot(el);
+    root.render(<SimpleReactComponent text={text} />);
+  });
 
   /*
   console.log("DEBUGGING");

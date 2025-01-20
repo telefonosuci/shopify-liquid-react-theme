@@ -2,6 +2,7 @@ import React, { useCallback, useState, useEffect, useContext  } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from '../../contexts/ThemeProvider';
 import { ProductContext } from '../../contexts/ProductProvider';
+import Details from './Deatils';
 
 /**
  *
@@ -46,7 +47,7 @@ function ProductLister({ size }) {
       <div>
       {products.map((product, index) => (
         <div key={index} onClick={prdoductCLick(product)}>
-          <span style={{cursor: 'pointer'}}>product</span>  <span onClick={removeProduct(product, index)} style={{cursor: 'pointer'}}>&nbsp;---remove</span>
+          <span style={{cursor: 'pointer'}}>{product.title}</span>  <span onClick={removeProduct(product, index)} style={{cursor: 'pointer'}}>&nbsp;-remove</span>
         </div>
       ))}
       </div>
@@ -62,20 +63,8 @@ function ProductLister({ size }) {
 
       <div className="flex-container" style={{ maxHeight: 500}}>
 
-      <div className="flex-item product-details">
-            Product preview {product != null ? (
-              <>
-                <div>
-                  {product.title}
-                </div>
-                <div>
-                  Brand: {product.brand}
-                </div>
-                <div>
-                  Price: {product.price}
-                </div>
-              </>
-            ): 'no product found'}
+        <div className="flex-item product-details">
+            <Details product={product} />
         </div>
 
         <div className="flex-item">

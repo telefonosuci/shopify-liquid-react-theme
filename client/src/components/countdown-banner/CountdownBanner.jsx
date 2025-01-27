@@ -122,7 +122,10 @@ function CountdownBanner({ title, subtitle, expire, productUrl }) {
       <h2>{theme}</h2>
       <div><button onClick={toggleTheme}>Cambia tema</button></div>
       <div className='countdownbanner-timer'>
-        {timerComponents.length ? timerComponents : <span>Time's up!</span>}
+        {timeLeft >= 0 ?
+        <div>
+          {timerComponents.length ? timerComponents : ''}
+        </div> : <span>Time's up!</span>}
       </div>
       <div>
         {button}

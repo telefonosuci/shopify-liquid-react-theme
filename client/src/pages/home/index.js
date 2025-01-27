@@ -67,6 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   productRedElList.forEach((el) => {
 
+    const products = JSON.parse(el.dataset.products);
+
+    console.log("Shopify Liquid products data: ", products);
+
     ReactDOM.render(
         <ProductProviderWithReducer>
           <ProductListUseReducer />

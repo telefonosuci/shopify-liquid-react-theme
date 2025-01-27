@@ -5,7 +5,11 @@
     </div>
   </div>
 
-  <div class="js-react-product-lister-with-reducer product-lister">
+  <script type="application/json">
+  {{ section.settings.collection.products | json }}
+  </script>
+
+  <div class="js-react-product-lister-with-reducer product-lister" data-collection-id="{{section.settings.collection.id}}" data-products='{{ section.settings.collection.products | json }}'></div>
     <div>
       <h2>Product Lister with reducer</h2>
     </div>

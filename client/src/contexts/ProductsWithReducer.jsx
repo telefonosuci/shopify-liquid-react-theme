@@ -16,6 +16,12 @@ function reducer(state, action) {
       return { ...state, loading: false, products: action.payload };
     case 'FETCH_PRODUCTS_FAILURE':
       return { ...state, loading: false, error: action.payload };
+    case 'EMPTY_PRODUCTS_LIST':
+      return { ...state, loading: false, products: [] };
+    case 'REMOVE_PRODUCT':
+      return { ...state, products: state.products.filter(product => product.id !== action.payload) };
+    case 'ADD_PRODUCT':
+      return { ...state, products: [...state.products, action.payload] };
     default:
       throw new Error(`Azione non gestita: ${action.type}`);
   }
